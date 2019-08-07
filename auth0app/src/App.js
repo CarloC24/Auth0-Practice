@@ -1,8 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import App1 from "./app1";
+
+export const My_Context = React.createContext({
+  name: "Carlo",
+  value: 0
+});
+// function CountProvider({ children }) {
+//   return (
+//     <Context.Provider value={{ count: 0, name: "Carlo" }}>
+//       {children}
+//     </Context.Provider>
+//   );
+// }
 
 function App() {
+  const { name } = React.useContext(My_Context);
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +32,8 @@ function App() {
         >
           Learn React
         </a>
+        <p>This is the name {name}</p>
+        <App1 />
       </header>
     </div>
   );
