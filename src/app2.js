@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import MyContext from "./import";
 
 export default function app2() {
