@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import App1 from "./app1";
 import myContext from "./import";
 import Img from "./img";
+import axios from "axios";
 
 function ContextProvider({ children }) {
   const [count, setCount] = useState(0);
@@ -15,6 +16,13 @@ function ContextProvider({ children }) {
 }
 
 function App() {
+  useEffect(() => {
+    async function postData() {
+      const res = await axios.get("http://localhost:5000");
+      console.log(res);
+    }
+    postData();
+  }, []);
   return (
     <div className="App">
       <ContextProvider>
