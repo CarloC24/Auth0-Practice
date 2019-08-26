@@ -16,6 +16,7 @@ export default function() {
   return (
     <div>
       <input type="file" onChange={uploadImage} />
+      <p>Trigger Build</p>
       {myImages && myImages.map(item => <img src={item} alt="wow" />)}
     </div>
   );
