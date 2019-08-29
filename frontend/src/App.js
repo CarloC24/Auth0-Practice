@@ -5,6 +5,7 @@ import App1 from "./app1";
 import myContext from "./import";
 import Img from "./img";
 import axios from "axios";
+import { Switch, Route } from "react-router-dom";
 
 function ContextProvider({ children }) {
   const [count, setCount] = useState(0);
