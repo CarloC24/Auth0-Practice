@@ -26,7 +26,11 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <ContextProvider>
+      <Switch>
+        <Route exact path="/" component={App1} />
+        <Route path="/img" component={Img} />
+      </Switch>
+      {/* <ContextProvider>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -40,11 +44,10 @@ function App() {
           >
             Learn React
           </a>
-          {/* <AnotherComponent /> */}
-          {/* <App1 /> */}
+
           <Img />
         </header>
-      </ContextProvider>
+      </ContextProvider> */}
     </div>
   );
 }
