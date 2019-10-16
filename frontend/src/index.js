@@ -6,6 +6,8 @@ import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "./auth0";
 import { Router } from "react-router-dom";
 import history from "./history";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
 
 const onRedirectCallback = appState => {
   history.push(
@@ -14,18 +16,20 @@ const onRedirectCallback = appState => {
       : window.location.pathname
   );
 };
+const client = new ApolloClient({
+  uri:
+    "http://labby-publi-16y0hyf72koho-280182879.us-east-1.elb.amazonaws.com/labby/dev/",
+  headers: {
+    "x-api-key": "<API-KEY>"
+  }
+});
 
 ReactDOM.render(
-  <Auth0Provider
-    domain="dev-sxvq6h3v.auth0.com"
-    client_id="ZPzccWi8ESRRpaEk5UYxSJ4FPv54vYV6"
-    redirect_uri={window.location.origin}
-    onRedirectCallback={onRedirectCallback}
-  >
+  <ApolloProvider client={client}>
     <Router history={history}>
       <App />
     </Router>
-  </Auth0Provider>,
+  </ApolloProvider>,
   document.getElementById("root")
 );
 
